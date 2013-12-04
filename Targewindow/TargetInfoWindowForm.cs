@@ -484,21 +484,21 @@ namespace Targewindow
         {
             try
             {
-                FFXIVLIB ffxiv = new ffxivlib.FFXIVLIB();
-                Entity currentTarget = ffxiv.GetCurrentTarget();
+                var ffxiv = new ffxivlib.FFXIVLIB();
+                var currentTarget = ffxiv.GetCurrentTarget();
                 if (currentTarget != null)
                 {
-                    TargetNameLabel.Text = Encoding.UTF8.GetString(Encoding.Unicode.GetBytes(currentTarget.Structure.Name));
+                    TargetNameLabel.Text = currentTarget.Structure.Name;
                     TargetHPLabel.Text = string.Format("{0}/{1} {2:0.00}%",
                                                         currentTarget.Structure.CurrentHP,
                                                         currentTarget.Structure.MaxHP,
                                                         100 * (float)currentTarget.Structure.CurrentHP
                                                             / (float)currentTarget.Structure.MaxHP);
-                    PartyMember me = ffxiv.GetPartyMemberInfo(0);
-                    float dist = (float)Math.Sqrt(Math.Pow(me.Structure.X - currentTarget.Structure.X, 2)
+                    var me = ffxiv.GetPartyMemberInfo(0);
+                    var dist = (float)Math.Sqrt(Math.Pow(me.Structure.X - currentTarget.Structure.X, 2)
                                                 + Math.Pow(me.Structure.Y - currentTarget.Structure.Y, 2)
                                                 + Math.Pow(me.Structure.Z - currentTarget.Structure.Z, 2));
-                    DistanceLabel.Text = String.Format("dist.{0:0.00}", dist);
+                    DistanceLabel.Text = string.Format("{0:0.00}", dist);
                 }
                 else
                 {
@@ -506,6 +506,8 @@ namespace Targewindow
                     TargetHPLabel.Text = "";
                     DistanceLabel.Text = "";
                 }
+
+                this.Write();
             }
             catch (Exception _e)
             {
