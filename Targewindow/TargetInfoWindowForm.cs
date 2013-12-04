@@ -514,5 +514,10 @@ namespace Targewindow
                 DistanceLabel.Text = "";
             }
         }
+
+        private void topMostOnOff_Click(object sender, EventArgs e)
+        {
+            this.TopMost = this.topMostOnOff.Checked;
+        }
     }
 }

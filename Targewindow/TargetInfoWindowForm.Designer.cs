@@ -33,6 +33,9 @@
             this.TargetHPLabel = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.DistanceLabel = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.topMostOnOff = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // TargetNameLabel
@@ -72,18 +75,34 @@
             this.DistanceLabel.TabIndex = 3;
             this.DistanceLabel.Text = "dist.1234.56";
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.topMostOnOff});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 48);
+            // 
+            // topMostOnOff
+            // 
+            this.topMostOnOff.CheckOnClick = true;
+            this.topMostOnOff.Name = "topMostOnOff";
+            this.topMostOnOff.Size = new System.Drawing.Size(152, 22);
+            this.topMostOnOff.Text = "常に前面表示";
+            this.topMostOnOff.Click += new System.EventHandler(this.topMostOnOff_Click);
+            // 
             // TargetInfoWindowForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(218, 95);
+            this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.DistanceLabel);
             this.Controls.Add(this.TargetHPLabel);
             this.Controls.Add(this.TargetNameLabel);
             this.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "TargetInfoWindowForm";
             this.Text = "TargetInfo";
             this.Load += new System.EventHandler(this.TargetInfoWindowForm_Load);
@@ -91,6 +110,7 @@
             this.MouseEnter += new System.EventHandler(this.RankingForm_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.RankingForm_MouseLeave);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.RankingForm_MouseMove);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -102,6 +122,8 @@
         private System.Windows.Forms.Label TargetHPLabel;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label DistanceLabel;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem topMostOnOff;
     }
 }
 
