@@ -82,7 +82,7 @@ namespace Targewindow
 
 
                 control.DrawToBitmap(bitmap, control.ClientRectangle);
-                
+
 
 
                 bitmap = ChangeColor(bitmap);
@@ -485,13 +485,19 @@ namespace Targewindow
             try
             {
                 FFXIVLIB ffxiv = new ffxivlib.FFXIVLIB();
-                Entity currentTarget = ffxiv.getCurrentTarget();
+                Entity currentTarget = ffxiv.GetCurrentTarget();
                 if (currentTarget != null)
                 {
-                    TargetNameLabel.Text = Encoding.UTF8.GetString(Encoding.Unicode.GetBytes(currentTarget.structure.name));
-                    TargetHPLabel.Text = String.Format("{0}/{1} {2:0.00}%", currentTarget.structure.cHP, currentTarget.structure.mHP, 100 * (float)currentTarget.structure.cHP / (float)currentTarget.structure.mHP);
-                    PartyMember me = ffxiv.getPartyMemberInfo(0);
-                    float dist = (float)Math.Sqrt(Math.Pow(me.structure.X - currentTarget.structure.X, 2) + Math.Pow(me.structure.Y - currentTarget.structure.Y, 2) + Math.Pow(me.structure.Z - currentTarget.structure.Z, 2));
+                    TargetNameLabel.Text = Encoding.UTF8.GetString(Encoding.Unicode.GetBytes(currentTarget.Structure.Name));
+                    TargetHPLabel.Text = string.Format("{0}/{1} {2:0.00}%",
+                                                        currentTarget.Structure.CurrentHP,
+                                                        currentTarget.Structure.MaxHP,
+                                                        100 * (float)currentTarget.Structure.CurrentHP
+                                                            / (float)currentTarget.Structure.MaxHP);
+                    PartyMember me = ffxiv.GetPartyMemberInfo(0);
+                    float dist = (float)Math.Sqrt(Math.Pow(me.Structure.X - currentTarget.Structure.X, 2)
+                                                + Math.Pow(me.Structure.Y - currentTarget.Structure.Y, 2)
+                                                + Math.Pow(me.Structure.Z - currentTarget.Structure.Z, 2));
                     DistanceLabel.Text = String.Format("dist.{0:0.00}", dist);
                 }
                 else
@@ -501,7 +507,7 @@ namespace Targewindow
                     DistanceLabel.Text = "";
                 }
             }
-            catch(Exception _e)
+            catch (Exception _e)
             {
                 TargetNameLabel.Text = _e.Message;
                 TargetHPLabel.Text = "";
