@@ -519,5 +519,10 @@ namespace Targewindow
         {
             this.TopMost = this.topMostOnOff.Checked;
         }
+
+        private void closeMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
