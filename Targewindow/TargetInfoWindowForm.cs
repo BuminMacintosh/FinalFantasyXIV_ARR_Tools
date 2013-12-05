@@ -8,10 +8,9 @@ using System.Text;
 using System.Windows.Forms;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
-
 using ffxivlib;
 
-namespace Targewindow
+namespace TargetInformation
 {
     public partial class TargetInfoWindowForm : Form
     {
@@ -54,15 +53,18 @@ namespace Targewindow
         {
             Bitmap surfaceBitmap = new Bitmap(this.Width, this.Height, this.CreateGraphics());
             Graphics g = Graphics.FromImage(surfaceBitmap);
+
             //背景は常に描画しましょうか
-            if (true || OnMouse)
-            {
-                g.FillRectangle(new SolidBrush(Color.FromArgb(128, Color.Black)), this.ClientRectangle);
-            }
-            else
-            {
-                g.FillRectangle(new SolidBrush(Color.FromArgb(1, Color.Black)), this.ClientRectangle);
-            }
+            g.FillRectangle(new SolidBrush(Color.FromArgb(128, Color.Black)), this.ClientRectangle);
+
+            //if (true || OnMouse)
+            //{
+            //    g.FillRectangle(new SolidBrush(Color.FromArgb(128, Color.Black)), this.ClientRectangle);
+            //}
+            //else
+            //{
+            //    g.FillRectangle(new SolidBrush(Color.FromArgb(1, Color.Black)), this.ClientRectangle);
+            //}
 
             //周り
             foreach (Control control in this.Controls)
@@ -112,6 +114,7 @@ namespace Targewindow
 
                 if (control.Width <= 0 || control.Height <= 0)
                     continue;
+
                 if (control is DataGridView)
                 {
                     ((DataGridView)control).GridColor = Color.FromArgb(255, 64, 64, 64);
@@ -187,12 +190,14 @@ namespace Targewindow
             //ColorMatrixにセットする行列を 5 * 5 の配列で用意
             //入力のRGBの各チャンネルを重み付けをした上で、
             //出力するRGBがR = G = B となるような行列をセット
-            float[][] matrixElement =
-                      {new float[]{r, r, r, 0, 0},
-                       new float[]{g, g, g, 0, 0},
-                       new float[]{b, b, b, 0, 0},
-                       new float[]{0, 0, 0, 1, 0},
-                       new float[]{0, 0, 0, 0, 1}};
+            var matrixElement = new float[][]
+            {
+                new float[]{r, r, r, 0, 0},
+                new float[]{g, g, g, 0, 0},
+                new float[]{b, b, b, 0, 0},
+                new float[]{0, 0, 0, 1, 0},
+                new float[]{0, 0, 0, 0, 1}
+            };
 
             //ColorMatrixオブジェクトの作成
             ColorMatrix matrix = new ColorMatrix(matrixElement);
@@ -241,8 +246,11 @@ namespace Targewindow
             Graphics g = Graphics.FromImage(canvas);
 
             //ColorMapオブジェクトの配列（カラーリマップテーブル）を作成
-            System.Drawing.Imaging.ColorMap[] cms =
-                new System.Drawing.Imaging.ColorMap[] { new System.Drawing.Imaging.ColorMap(), new System.Drawing.Imaging.ColorMap() };
+            var cms = new System.Drawing.Imaging.ColorMap[]
+            {
+                new System.Drawing.Imaging.ColorMap(),
+                new System.Drawing.Imaging.ColorMap()
+            };
 
             //fromをtoに変換する
             cms[0].OldColor = from;
@@ -252,8 +260,7 @@ namespace Targewindow
             cms[1].NewColor = from;
 
             //ImageAttributesオブジェクトの作成
-            System.Drawing.Imaging.ImageAttributes ia =
-                new System.Drawing.Imaging.ImageAttributes();
+            var ia = new System.Drawing.Imaging.ImageAttributes();
             //ColorMapを設定
             ia.SetRemapTable(cms);
 
@@ -270,6 +277,7 @@ namespace Targewindow
         }
 
         #endregion
+
         #region マウスイベント
         /// <summary>
         /// フォームのサイズが変更されたとき
@@ -288,7 +296,8 @@ namespace Targewindow
         /// <param name="e"></param>
         private void RankingForm_MouseMove(object sender, MouseEventArgs e)
         {
-            if ((e.Button & MouseButtons.Left) == System.Windows.Forms.MouseButtons.Left && dAndDSizeChanger.Status == DAndDArea.None)
+            if ((e.Button & MouseButtons.Left) == System.Windows.Forms.MouseButtons.Left
+                && dAndDSizeChanger.Status == DAndDArea.None)
             {
                 this.Location += (Size)e.Location - (Size)lastMousePoint;
             }
@@ -317,6 +326,7 @@ namespace Targewindow
         {
             Write();
         }
+
         /// <summary>
         /// マウスが上に乗ったとき
         /// </summary>
@@ -327,6 +337,7 @@ namespace Targewindow
             Write();
         }
         #endregion
+
         #region 透過用
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         public static extern IntPtr GetDC(IntPtr hWnd);

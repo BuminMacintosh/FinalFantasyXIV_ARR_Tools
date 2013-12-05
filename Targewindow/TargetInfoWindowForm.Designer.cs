@@ -1,4 +1,4 @@
-﻿namespace Targewindow
+﻿namespace TargetInformation
 {
     partial class TargetInfoWindowForm
     {
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TargetInfoWindowForm));
             this.TargetNameLabel = new System.Windows.Forms.Label();
             this.TargetHPLabel = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -44,28 +45,15 @@
             // 
             // TargetNameLabel
             // 
-            this.TargetNameLabel.AutoSize = true;
-            this.TargetNameLabel.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            resources.ApplyResources(this.TargetNameLabel, "TargetNameLabel");
             this.TargetNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.TargetNameLabel.Location = new System.Drawing.Point(-1, 0);
-            this.TargetNameLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.TargetNameLabel.Name = "TargetNameLabel";
-            this.TargetNameLabel.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
-            this.TargetNameLabel.Size = new System.Drawing.Size(111, 24);
-            this.TargetNameLabel.TabIndex = 0;
-            this.TargetNameLabel.Text = "ターゲットネーム";
             // 
             // TargetHPLabel
             // 
-            this.TargetHPLabel.AutoSize = true;
-            this.TargetHPLabel.Font = new System.Drawing.Font("Meiryo UI", 11F);
+            resources.ApplyResources(this.TargetHPLabel, "TargetHPLabel");
             this.TargetHPLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.TargetHPLabel.Location = new System.Drawing.Point(42, 28);
-            this.TargetHPLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.TargetHPLabel.Name = "TargetHPLabel";
-            this.TargetHPLabel.Size = new System.Drawing.Size(106, 19);
-            this.TargetHPLabel.TabIndex = 1;
-            this.TargetHPLabel.Text = "65535/65535";
             // 
             // timer1
             // 
@@ -73,15 +61,9 @@
             // 
             // DistanceLabel
             // 
-            this.DistanceLabel.AutoSize = true;
-            this.DistanceLabel.Font = new System.Drawing.Font("Meiryo UI", 11F);
+            resources.ApplyResources(this.DistanceLabel, "DistanceLabel");
             this.DistanceLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DistanceLabel.Location = new System.Drawing.Point(42, 47);
-            this.DistanceLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.DistanceLabel.Name = "DistanceLabel";
-            this.DistanceLabel.Size = new System.Drawing.Size(68, 19);
-            this.DistanceLabel.TabIndex = 3;
-            this.DistanceLabel.Text = "1234.56";
             // 
             // contextMenuStrip1
             // 
@@ -90,69 +72,51 @@
             this.toolStripSeparator1,
             this.closeMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(167, 54);
+            resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
             // 
             // topMostOnOff
             // 
             this.topMostOnOff.CheckOnClick = true;
             this.topMostOnOff.Name = "topMostOnOff";
-            this.topMostOnOff.Size = new System.Drawing.Size(166, 22);
-            this.topMostOnOff.Text = "常に前面表示(&T)";
+            resources.ApplyResources(this.topMostOnOff, "topMostOnOff");
             this.topMostOnOff.Click += new System.EventHandler(this.topMostOnOff_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(163, 6);
+            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
             // 
             // closeMenuItem
             // 
             this.closeMenuItem.Name = "closeMenuItem";
-            this.closeMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.closeMenuItem.Text = "閉じる(&C)";
+            resources.ApplyResources(this.closeMenuItem, "closeMenuItem");
             this.closeMenuItem.Click += new System.EventHandler(this.closeMenuItem_Click);
             // 
             // hpTitle
             // 
-            this.hpTitle.AutoSize = true;
-            this.hpTitle.Font = new System.Drawing.Font("Meiryo UI", 11F);
+            resources.ApplyResources(this.hpTitle, "hpTitle");
             this.hpTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.hpTitle.Location = new System.Drawing.Point(14, 28);
-            this.hpTitle.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.hpTitle.Name = "hpTitle";
-            this.hpTitle.Size = new System.Drawing.Size(29, 19);
-            this.hpTitle.TabIndex = 4;
-            this.hpTitle.Text = "HP";
             // 
             // distanceTitle
             // 
-            this.distanceTitle.AutoSize = true;
-            this.distanceTitle.Font = new System.Drawing.Font("Meiryo UI", 11F);
+            resources.ApplyResources(this.distanceTitle, "distanceTitle");
             this.distanceTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.distanceTitle.Location = new System.Drawing.Point(23, 47);
-            this.distanceTitle.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.distanceTitle.Name = "distanceTitle";
-            this.distanceTitle.Size = new System.Drawing.Size(20, 19);
-            this.distanceTitle.TabIndex = 5;
-            this.distanceTitle.Text = "D";
             // 
             // TargetInfoWindowForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(218, 74);
             this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.distanceTitle);
             this.Controls.Add(this.hpTitle);
             this.Controls.Add(this.DistanceLabel);
             this.Controls.Add(this.TargetHPLabel);
             this.Controls.Add(this.TargetNameLabel);
-            this.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "TargetInfoWindowForm";
-            this.Text = "TargetInfo";
             this.Load += new System.EventHandler(this.TargetInfoWindowForm_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RankingForm_MouseDown);
             this.MouseEnter += new System.EventHandler(this.RankingForm_MouseEnter);

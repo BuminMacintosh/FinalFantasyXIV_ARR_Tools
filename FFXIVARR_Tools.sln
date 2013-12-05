@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual C# Express 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFXIVLibrary", "FFXIVLibrary\FFXIVLibrary.csproj", "{66F73764-F355-41D6-BB58-E26F282A74F1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFXIVLogAnalyze", "FFXIVLogAnalyze\FFXIVLogAnalyze.csproj", "{30D37EED-D57B-4494-924E-F5D659564074}"
@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TakotanInfo", "TakotanInfo\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFXIVLogWindow", "FFXIVLogWindow\FFXIVLogWindow.csproj", "{6218DA8D-D327-4BA5-8116-7DC83673BC33}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Targewindow", "Targewindow\Targewindow.csproj", "{537C3791-1430-4377-941D-6AB3080891B3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TargetInformation", "Targewindow\TargetInformation.csproj", "{537C3791-1430-4377-941D-6AB3080891B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
